@@ -7,7 +7,7 @@ entity Risks
     key ID : UUID;
     title : String(100);
     prio : String(5);
-    descr : String(100);
+    description : String(100);
     impact : Integer;
     criticality : Integer;
     miti : Association to one Migrations;
