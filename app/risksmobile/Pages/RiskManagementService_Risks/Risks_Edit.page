@@ -1,0 +1,90 @@
+{
+	"Caption": "Update Risks Detail",
+	"DesignTimeTarget": {
+		"Service": "/risksmobile/Services/RiskManagementService.service",
+		"EntitySet": "Risks",
+		"QueryOptions": ""
+	},
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "Left",
+				"Caption": "Cancel",
+				"OnPress": "/risksmobile/Rules/RiskManagementService/Risks/Risks_Cancel.js"
+			},
+			{
+				"Position": "Right",
+				"SystemItem": "Save",
+				"OnPress": "/risksmobile/Rules/RiskManagementService/Risks/Risks_UpdateEntity.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0",
+					"Visible": true,
+					"Controls": [
+						{
+							"Caption": "title",
+							"_Name": "title",
+							"Value": "{title}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "prio",
+							"_Name": "prio",
+							"Value": "{prio}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "description",
+							"_Name": "description",
+							"Value": "{description}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "impact",
+							"_Name": "impact",
+							"Value": "{impact}",
+							"KeyboardType": "Number",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "criticality",
+							"_Name": "criticality",
+							"Value": "{criticality}",
+							"KeyboardType": "Number",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "supplier_BusinessPartner",
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": true,
+							"IsPickerDismissedOnSelection": true,
+							"IsSelectedSectionEnabled": true,
+							"PickerItems": {
+								"DisplayValue": "{BusinessPartner}",
+								"ReturnValue": "{BusinessPartner}",
+								"Target": {
+									"EntitySet": "A_BusinessPartner",
+									"Service": "/risksmobile/Services/RiskManagementService.service"
+								}
+							},
+							"Value": "{supplier_BusinessPartner}",
+							"_Name": "supplier_BusinessPartner",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						}
+					]
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Risks_Edit",
+	"PrefersLargeCaption": true
+}

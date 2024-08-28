@@ -1,0 +1,19 @@
+{
+    "_Type": "Action.Type.ODataService.DraftEnabled.Save",
+    "Target": {
+        "Service": "/risksmobile/Services/RiskManagementService.service",
+        "EntitySet": "Migrations",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "ShowActivityIndicator": true,
+    "ActionResult": {
+        "_Name": "update"
+    },
+    "OnSuccess": {
+        "Name": "/risksmobile/Actions/UpdateEntitySuccessMessage.action",
+        "Properties": {
+            "Message": "Draft Saved"
+        }
+    },
+    "OnFailure": "/risksmobile/Actions/UpdateEntityFailureMessage.action"
+}

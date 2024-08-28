@@ -1,0 +1,21 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "Migrations",
+        "Service": "/risksmobile/Services/RiskManagementService.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "createdAt": "#Control:createdAt/#Value",
+        "createdBy": "#Control:createdBy/#Value",
+        "description": "#Control:description/#Value",
+        "owner": "#Control:owner/#Value",
+        "timeline": "#Control:timeline/#Value"
+    },
+    "UpdateLinks": [],
+    "ActionResult": {
+        "_Name": "update"
+    },
+    "OnSuccess": "/risksmobile/Actions/UpdateEntitySuccessMessage.action",
+    "OnFailure": "/risksmobile/Actions/UpdateEntityFailureMessage.action"
+}

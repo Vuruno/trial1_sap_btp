@@ -1,0 +1,80 @@
+{
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/risksmobile/Actions/CloseModalPage_Cancel.action",
+				"Position": "Left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/risksmobile/Rules/RiskManagementService/Migrations/Migrations_CreateRisks.js",
+				"Position": "Right",
+				"SystemItem": "Save"
+			}
+		]
+	},
+	"Caption": "Create Risks",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0",
+					"Visible": true,
+					"Controls": [
+						{
+							"Caption": "title",
+							"_Name": "title",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "prio",
+							"_Name": "prio",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "description",
+							"_Name": "description",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "impact",
+							"KeyboardType": "Number",
+							"_Name": "impact",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "criticality",
+							"KeyboardType": "Number",
+							"_Name": "criticality",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "supplier_BusinessPartner",
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": true,
+							"IsEditable": true,
+							"IsPickerDismissedOnSelection": true,
+							"IsSelectedSectionEnabled": true,
+							"PickerItems": {
+								"DisplayValue": "{BusinessPartner}",
+								"ReturnValue": "{BusinessPartner}",
+								"Target": {
+									"EntitySet": "A_BusinessPartner",
+									"Service": "/risksmobile/Services/RiskManagementService.service"
+								}
+							},
+							"_Name": "supplier_BusinessPartner",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						}
+					]
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Migrations_CreateRisks",
+	"PrefersLargeCaption": true
+}

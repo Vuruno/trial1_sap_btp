@@ -1,0 +1,70 @@
+{
+	"Caption": "Update Migrations Detail",
+	"DesignTimeTarget": {
+		"Service": "/risksmobile/Services/RiskManagementService.service",
+		"EntitySet": "Migrations",
+		"QueryOptions": ""
+	},
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "Left",
+				"Caption": "Cancel",
+				"OnPress": "/risksmobile/Rules/RiskManagementService/Migrations/Migrations_Cancel.js"
+			},
+			{
+				"Position": "Right",
+				"SystemItem": "Save",
+				"OnPress": "/risksmobile/Rules/RiskManagementService/Migrations/Migrations_UpdateEntity.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0",
+					"Visible": true,
+					"Controls": [
+						{
+							"Caption": "createdAt",
+							"_Name": "createdAt",
+							"Value": "{createdAt}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "createdBy",
+							"_Name": "createdBy",
+							"Value": "{createdBy}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "description",
+							"_Name": "description",
+							"Value": "{description}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "owner",
+							"_Name": "owner",
+							"Value": "{owner}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "timeline",
+							"_Name": "timeline",
+							"Value": "{timeline}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					]
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Migrations_Edit",
+	"PrefersLargeCaption": true
+}

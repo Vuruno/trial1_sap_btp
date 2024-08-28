@@ -1,0 +1,117 @@
+{
+	"Caption": "Migrations Detail",
+	"DesignTimeTarget": {
+		"Service": "/risksmobile/Services/RiskManagementService.service",
+		"EntitySet": "Migrations",
+		"QueryOptions": ""
+	},
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/risksmobile/Rules/RiskManagementService/Migrations/NavToMigrations_Edit.js",
+				"Position": "Right",
+				"SystemItem": "Edit"
+			},
+			{
+				"OnPress": "/risksmobile/Actions/RiskManagementService/Migrations/Migrations_DetailPopover.action",
+				"Position": "Right",
+				"Caption": "More"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"Tags": [],
+						"DetailImage": "",
+						"HeadlineText": "{ID}",
+						"Subhead": "{createdAt}",
+						"BodyText": "",
+						"Footnote": "{description}",
+						"Description": "{createdBy}",
+						"StatusText": "{owner}",
+						"StatusImage": "",
+						"SubstatusImage": "",
+						"SubstatusText": "{timeline}"
+					},
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"KeyAndValues": [
+						{
+							"KeyName": "createdAt",
+							"Value": "{createdAt}"
+						},
+						{
+							"KeyName": "createdBy",
+							"Value": "{createdBy}"
+						},
+						{
+							"KeyName": "description",
+							"Value": "{description}"
+						},
+						{
+							"KeyName": "owner",
+							"Value": "{owner}"
+						},
+						{
+							"KeyName": "timeline",
+							"Value": "{timeline}"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "SectionKeyValue0",
+					"_Type": "Section.Type.KeyValue"
+				},
+				{
+					"Header": {
+						"Caption": "risks",
+						"_Type": "SectionCommon.Type.Header"
+					},
+					"ObjectCell": {
+						"AccessoryType": "DisclosureIndicator",
+						"Description": "{description}",
+						"AvatarStack": {
+							"Avatars": [
+								{
+									"Image": ""
+								}
+							],
+							"ImageIsCircular": false
+						},
+						"Icons": [],
+						"StatusImage": "",
+						"Title": "{title}",
+						"Footnote": "{impact}",
+						"PreserveIconStackSpacing": false,
+						"StatusText": "{criticality}",
+						"Subhead": "{prio}",
+						"SubstatusText": "{supplier_BusinessPartner}",
+						"OnPress": "/risksmobile/Actions/RiskManagementService/Risks/NavToRisks_Detail.action"
+					},
+					"EmptySection": {
+						"Caption": "No record found!"
+					},
+					"Target": {
+						"EntitySet": "{@odata.readLink}/risks",
+						"Service": "/risksmobile/Services/RiskManagementService.service"
+					},
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"DataSubscriptions": [
+				"Risks"
+			],
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Migrations_Detail",
+	"PrefersLargeCaption": true
+}

@@ -1,0 +1,22 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "Risks",
+        "Service": "/risksmobile/Services/RiskManagementService.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "title": "#Control:title/#Value",
+        "prio": "#Control:prio/#Value",
+        "description": "#Control:description/#Value",
+        "impact": "#Control:impact/#Value",
+        "criticality": "#Control:criticality/#Value",
+        "supplier_BusinessPartner": "#Control:supplier_BusinessPartner/#SelectedValue"
+    },
+    "UpdateLinks": [],
+    "ActionResult": {
+        "_Name": "update"
+    },
+    "OnSuccess": "/risksmobile/Actions/UpdateEntitySuccessMessage.action",
+    "OnFailure": "/risksmobile/Actions/UpdateEntityFailureMessage.action"
+}
