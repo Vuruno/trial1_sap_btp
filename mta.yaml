@@ -19,7 +19,8 @@ build-parameters:
         - >-
           bash -c "cds -v | grep 'cds-dk' || npm i --production --no-save @sap/cds-dk @sap/mdk-tools"
         - bash -c "export PATH=$PATH:$(pwd)/node_modules/.bin"
-        - cds build --production
+        - npm ci
+        - npx cds build --production
   after-all:
     - builder: custom
       commands:
