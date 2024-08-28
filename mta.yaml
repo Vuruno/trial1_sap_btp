@@ -17,8 +17,7 @@ build-parameters:
       commands:
         - npm install --production
         - >-
-          bash -c "cds -v | grep 'cds-dk' || npm i --production --no-save
-          @sap/cds-dk @sap/mdk-tools"
+          bash -c "cds -v | grep 'cds-dk' || npm i --production --no-save @sap/cds-dk @sap/mdk-tools"
         - bash -c "export PATH=$PATH:$(pwd)/node_modules/.bin"
         - cds build --production
   after-all:
@@ -35,12 +34,12 @@ modules:
         - rm -rf dist-zip dist
         - npm install
         - >-
-          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist
-          --include-task=generateCachebusterInfo
+          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist --include-task=generateCachebusterInfo
         - mkdir dist-zip
         - bash -c "cd dist && npx bestzip ../dist-zip/riskmanagementrisks.zip *"
       _artifactName: riskmanagementrisks.zip
-      supported-platforms: []
+      supported-platforms:
+        []
       build-result: dist-zip
   - name: riskmanagement-db-deployer
     type: hdb
@@ -55,6 +54,7 @@ modules:
     requires:
       - name: riskmanagement-service-uaa
       - name: riskmanagement-service-db
+      - name: riskmanagement-db
   - name: riskmanagement-srv
     type: nodejs
     path: gen/srv
@@ -76,6 +76,7 @@ modules:
       - name: riskmanagement-service-metadata
       - name: riskmanagement-service-connectivity
       - name: riskmanagement-service-logs
+      - name: riskmanagement-db
   - name: riskmanagement-aux-destinations
     type: com.sap.application.content
     parameters:
@@ -134,12 +135,12 @@ modules:
       commands:
         - npm install
         - >-
-          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist
-          --include-task=generateCachebusterInfo
+          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist --include-task=generateCachebusterInfo
         - bash -c "cd dist && npx bestzip ../../../build/dist/launchpad.zip *"
         - rm -rf dist
       _artifactName: launchpad.zip
-      supported-platforms: []
+      supported-platforms:
+        []
       build-result: ../../build/dist
   - name: riskmanagement-aux-ui-deployer
     type: com.sap.application.content
@@ -181,6 +182,7 @@ resources:
             name: riskmanagement-RiskAdmin-${space}
             role-template-references:
               - $XSAPPNAME.RiskAdmin
+        tenant-mode: dedicated
   - type: org.cloudfoundry.managed-service
     name: riskmanagement-service-db
     parameters:
@@ -222,3 +224,8 @@ resources:
       service: html5-apps-repo
       service-plan: app-host
       service-name: riskmanagement-html5-apps-repo-host
+  - name: riskmanagement-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
