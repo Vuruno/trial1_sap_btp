@@ -16,15 +16,16 @@ build-parameters:
     - builder: custom
       commands:
         - npm install --production
+        - npx cds build --production
         - >-
           bash -c "cds -v | grep 'cds-dk' || npm i --production --no-save @sap/cds-dk @sap/mdk-tools"
         - bash -c "export PATH=$PATH:$(pwd)/node_modules/.bin"
         - npm ci
-        - npx cds build --production
   after-all:
     - builder: custom
       commands:
         - npm install
+        - npx cds build --production
 modules:
   - name: riskmanagement-riskmanagement.risks
     type: html5
@@ -34,6 +35,7 @@ modules:
       commands:
         - rm -rf dist-zip dist
         - npm install
+        - npx cds build --production
         - >-
           npx -p @ui5/cli@^3.0.0 ui5 build --dest dist --include-task=generateCachebusterInfo
         - mkdir dist-zip
@@ -135,6 +137,7 @@ modules:
       builder: custom
       commands:
         - npm install
+        - npx cds build --production
         - >-
           npx -p @ui5/cli@^3.0.0 ui5 build --dest dist --include-task=generateCachebusterInfo
         - bash -c "cd dist && npx bestzip ../../../build/dist/launchpad.zip *"
